@@ -1,7 +1,21 @@
 import { StyleSheet, Text, View,Image, TouchableOpacity } from 'react-native'
-import React from 'react'
-
+import React,{useEffect} from 'react'
+import EncryptedStorage from 'react-native-encrypted-storage';
 const Splash = ({navigation}) => {
+  useEffect(() => {
+    (async function retrieveUserSession() {
+      try {
+        const session = await EncryptedStorage.getItem("user_ID");
+        if (session !== undefined) {
+          const id = JSON.parse(session).userID
+          console.log("Data from local storage", id)
+          navigation.navigate("Main")
+        }
+      } catch (error) {
+        console.log("Error while getting data from local storage in Login=>", error)
+      }
+    })();
+  }, []);
   return (
     <View style={styles.homeMainContainer}>
       <View style={styles.circle1}></View>
