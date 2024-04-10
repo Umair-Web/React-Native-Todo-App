@@ -19,7 +19,8 @@ For this I have used package called react-native-encrypted-storage
 7)How to apply loader, for that I have used package called 'react-native-loader-kit'.  
 8)Debugging in react native.  
 9)Creating sessions.  
-10)Creating design in figma.
+10)Creating design in figma.  
+11)CRUD operation with the help of Firebase
 # How to use?
 1.Open the app.  
 2.Click on get started.  
