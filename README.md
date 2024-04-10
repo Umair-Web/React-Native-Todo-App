@@ -38,5 +38,6 @@ For this I have used package called react-native-encrypted-storage
 
 ![IMG-20240410-WA0025](https://github.com/Umair-Web/ReactNative-TodoApp-Firebase/assets/125777604/7e09d72f-712d-495d-bd57-6d3c7b07aaa3)
 
-![WhatsApp Image 2024-04-10 at 14 19 12_24493242](https://github.com/Umair-Web/ReactNative-TodoApp-Firebase/assets/125777604/8465f0ea-67c7-48cb-a0ff-1a4bfa33eac8)
+
+![Capture](https://github.com/Umair-Web/ReactNative-TodoApp-Firebase/assets/125777604/c2742c3c-c64a-41de-9c8d-6972d83af07c)
 
