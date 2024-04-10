@@ -2,9 +2,9 @@
 This is a simple todo app made on react native with the help of firebase.For permenantly storing user's todos I have emplemented Firebase in it.
 This project is made by my own self without following tutorials, I tackle all the problems by searching online and reading blogs. This project took me 8 days to complete working 4 hours a day on it. 
 # Features
-Following are some features of it.
+Following are some features of it.  
 1) User can register and login into it, once user is registered the user session is created by encrypting the userId in encrypted storage means I have cached the userId so when ever user come back after period of time he/she doesnot need to re-register or re-login again.
-2)User can create, read, update and delete todos.
+2)User can create, read, update and delete todos.  
 3)User data is stored in server means user can access his/hers data after re-installing the app or re-login.
 # Acquisition of knowledge
 Through this app I have learned several things.
