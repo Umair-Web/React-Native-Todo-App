@@ -1,6 +1,5 @@
 # Simple TodoApp with Firebase
-This is a simple todo app made on react native with the help of firebase.For permenantly storing user's todos I have emplemented Firebase in it.
-This project is made by my own self without following tutorials, I tackle all the problems by searching online and reading blogs. This project took me 8 days to complete working 4 hours a day on it. 
+This is a simple todo app made on react native with the help of firebase. For permanently storing user's to-do's I have implemented Firebase in it. This project is made by my own self without following tutorials, I tackle all the problems by searching online and reading blogs. This project took me 8 days to complete working 4 hours a day on it.
 # Features
 Following are some features of it.  
   
