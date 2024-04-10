@@ -19,7 +19,15 @@ For this I have used package called react-native-encrypted-storage
 7)How to apply loader, for that I have used package called 'react-native-loader-kit'.  
 8)Debugging in react native.  
 9)Creating sessions.  
-10)Creating design in figma.   
+10)Creating design in figma.
+# How to use?
+1.Open the app.  
+2.Click on get started.  
+3.If donot have account then enter details in the three input forms of name , email and password, after that click to register button.  
+4.If already have an account then click Login and enter the correct login credentials in the two input forms email and password, after that click on login button.  
+5.On the main page enter the text you wnat to add beside plus button and click plus button to add todo, once the todo is added it will display down below.  
+6.To update to simply click and the todo you want to update, enter the text into it and click pencil button which refers to update function.  
+7.To delete a todo simply click the dustbin icon which refers to delete function , it will delete the todo and refresh the todos.  
 # Screenshots
 ![IMG-20240410-WA0024](https://github.com/Umair-Web/ReactNative-TodoApp-Firebase/assets/125777604/38d43c0f-8aa0-400b-9137-9e97f0248d84)
 
@@ -28,3 +36,6 @@ For this I have used package called react-native-encrypted-storage
 ![IMG-20240410-WA0023](https://github.com/Umair-Web/ReactNative-TodoApp-Firebase/assets/125777604/7e0338ee-fac6-4096-b6d5-b24d57aebfd5)
 
 ![IMG-20240410-WA0025](https://github.com/Umair-Web/ReactNative-TodoApp-Firebase/assets/125777604/7e09d72f-712d-495d-bd57-6d3c7b07aaa3)
+
+![WhatsApp Image 2024-04-10 at 14 19 12_24493242](https://github.com/Umair-Web/ReactNative-TodoApp-Firebase/assets/125777604/8465f0ea-67c7-48cb-a0ff-1a4bfa33eac8)
+
