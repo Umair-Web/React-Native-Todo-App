@@ -1,9 +1,12 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity,Alert } from 'react-native'
-import React, { useState ,useEffect} from 'react'
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native'
+import React, { useState } from 'react'
 import auth from '@react-native-firebase/auth';
 import LoaderKit from 'react-native-loader-kit'
 import EncryptedStorage from 'react-native-encrypted-storage';
+
 const Login = ({ navigation }) => {
+
+// Login state management
   const [email, setEmail] = useState('')
   const [emailPlaceholder, setEmailPlaceholder] = useState('Enter your email.')
   const [password, setPassword] = useState('')
@@ -11,51 +14,21 @@ const Login = ({ navigation }) => {
   const [loader, setloader] = useState(false);
   const [error, setError] = useState('');
 
-  const createTwoButtonAlert = () =>
-  Alert.alert('Registration Error.', error, [
-    {
-      text: 'Cancel',
-      onPress: () => console.log('Cancel Pressed'),
-      style: 'cancel',
-    },
-    { text: 'OK', onPress: () => console.log('OK Pressed') },
-  ]);
-
-  // useEffect(
-  //   () =>
-  //     navigation.addListener('beforeRemove', (e) => {
-  //       // Prevent default behavior of leaving the screen
-  //       e.preventDefault();
-
-  //       // Prompt the user before leaving the screen
-  //       Alert.alert(
-  //         'You can not go back until you log out.',
-  //         [
-  //           { text: "Don't leave", style: 'cancel', onPress: () => {} },
-  //           {
-  //             text: 'Discard',
-  //             style: 'destructive',
-  //             // If the user confirmed, then we dispatch the action we blocked earlier
-  //             // This will continue the action that had triggered the removal of the screen
-  //             onPress: () => navigation.dispatch(e.data.action),
-  //           },
-  //         ]
-  //       );
-  //     }),
-  //   []
-  // );
-
+// User signin and id encryption
   const handleuser = async () => {
     setloader(true);
+
     try {
+
       await auth()
         .signInWithEmailAndPassword(email, password)
         .then(async (data) => {
-          
+
           console.log('User signed in!');
           console.log("Signed In user data=>", data.user.uid)
           let id = data.user.uid;
           setloader(false);
+
           try {
             await EncryptedStorage.setItem(
               "user_ID",
@@ -66,59 +39,97 @@ const Login = ({ navigation }) => {
 
             console.log("User Id is stored in local storage=>", id)
             navigation.navigate("Main");
-          } catch (error) {
+            
+          } 
+          catch (error) {
             console.log("Error while storing in local storage", error)
             setError(error.message);
           }
+
         })
         .catch(error => {
           setloader(false);
           setError(error.message);
           console.error(error);
         });
-    } catch (e) {
+
+    }
+    catch (e) {
       setloader(false);
     }
     setError("");
+
   }
 
 
   return (
-    <View style={styles.registerMainContainer}>
-        {loader ?
+    <View
+      style={styles.registerMainContainer}>
+
+      {loader ?
         <View >
           <LoaderKit
             style={styles.loader}
-            name={'BallPulse'} // Optional: see list of animations below
-            color={"#A34343"} // Optional: color can be: 'red', 'green',... or '#ddd', '#ffffff',...
+            name={'BallPulse'}
+            color={"#A34343"}
           />
-        </View>:<>
-        <View style={styles.circle1}></View>
-      <View style={styles.circle2}></View>
+        </View> :
+        <>
 
-      <Text style={styles.intro}>WELCOME TO THE QUICK TODO </Text>
-      <Text style={styles.para}>Hey ! Register if you don't hold and account.</Text>
-      <View style={{ gap: 16 }}>
-        <TextInput style={styles.input} placeholderTextColor={"#000"} placeholder={emailPlaceholder} defaultValue={email} onChangeText={newText => setEmail(newText)} onClick={() => (setEmailPlaceholder(''))} />
-        <TextInput secureTextEntry style={styles.input} placeholderTextColor={"#000"} placeholder={passwordPlaceholder} defaultValue={password} onChangeText={newText => setPassword(newText)} onClick={() => (setPasswordPlaceholder(''))} />
+          <View style={styles.circle1}></View>
 
-      </View>
-      <View >
-        <Text style={[styles.para]}>Donot have an account? </Text>
-        <TouchableOpacity onPress={() => (console.log(navigation.navigate("Register")))}><Text style={styles.para}>Register.</Text></TouchableOpacity>
-      </View>
-      <TouchableOpacity onPress={handleuser} style={styles.homebutton} >
-        <Text style={styles.homebuttontext}>Login</Text>
-      </TouchableOpacity>
+          <View style={styles.circle2}></View>
+
+          <Text style={styles.intro}>WELCOME TO THE QUICK TODO </Text>
+
+          <Text style={styles.para}>Hey ! Register if you don't hold and account.</Text>
+
+          <View style={{ gap: 16 }}>
+
+            <TextInput
+              style={styles.input}
+              placeholderTextColor={"#000"}
+              placeholder={emailPlaceholder}
+              defaultValue={email}
+              onChangeText={newText => setEmail(newText)}
+              onClick={() => (setEmailPlaceholder(''))} />
+
+            <TextInput
+              secureTextEntry
+              style={styles.input}
+              placeholderTextColor={"#000"}
+              placeholder={passwordPlaceholder}
+              defaultValue={password}
+              onChangeText={newText => setPassword(newText)}
+              onClick={() => (setPasswordPlaceholder(''))} />
+
+          </View>
+
+          <View >
+            <Text style={[styles.para]}>Donot have an account? </Text>
+            <TouchableOpacity
+              onPress={() => (console.log(navigation.navigate("Register")))}>
+              <Text style={styles.para}>Register.</Text>
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity onPress={handleuser} style={styles.homebutton} >
+            <Text style={styles.homebuttontext}>Login</Text>
+          </TouchableOpacity>
+
         </>}
-    {error?Alert.alert('Registration Error.', error, [
-    {
-      text: 'Cancel',
-      onPress: () => console.log('Cancel Pressed'),
-      style: 'cancel',
-    },
-    { text: 'OK', onPress: () => console.log('OK Pressed') },
-  ]):""}
+
+      {error ? Alert.alert('Registration Error.', error, [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {
+          text: 'OK', onPress: () => console.log('OK Pressed')
+        },
+      ]) : ""}
+
     </View>
   )
 }
@@ -143,9 +154,6 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-ExtraBold",
     fontSize: 22,
     color: "#A34343",
-
-
-
   },
   loader: {
     height: 50,

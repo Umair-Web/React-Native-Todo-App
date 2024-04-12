@@ -1,7 +1,11 @@
 import { StyleSheet, Text, View,Image, TouchableOpacity } from 'react-native'
 import React,{useEffect} from 'react'
 import EncryptedStorage from 'react-native-encrypted-storage';
+
 const Splash = ({navigation}) => {
+
+
+
   useEffect(() => {
     (async function retrieveUserSession() {
       try {
@@ -16,16 +20,27 @@ const Splash = ({navigation}) => {
       }
     })();
   }, []);
+
+
+
   return (
+
     <View style={styles.homeMainContainer}>
+
       <View style={styles.circle1}></View>
+
       <View style={styles.circle2}></View>
+
       <Image style={styles.homeimg} source={require("../assets/homeimg.png")}/>
+
       <Text style={styles.homeintro}>GET THINGS DONE WITH TODO</Text>
+
       <Text style={styles.homepara}>This is a simple todo app to keep records of daily task.</Text>
+
       <TouchableOpacity onPress={()=>(navigation.navigate('Register'))} style={styles.homebutton}>
         <Text style={styles.homebuttontext}>Get Started</Text>
       </TouchableOpacity>
+
     </View>
   )
 }
@@ -49,9 +64,6 @@ const styles = StyleSheet.create({
         fontFamily:"Poppins-ExtraBold",
         fontSize:22,
         color:"#A34343",
-        
-        
-       
     },
     homepara:{
       fontSize:20,
@@ -62,8 +74,7 @@ const styles = StyleSheet.create({
       height:50,
       backgroundColor:"#A34343",
       alignItems:"center",
-      justifyContent:"center",
-      
+      justifyContent:"center",  
     },
     homebuttontext:{
       fontFamily:"Poppins-ExtraBold",
@@ -80,8 +91,7 @@ const styles = StyleSheet.create({
       borderRadius:200/2,
       top:-10,
       left:-100,
-      opacity: 0.5,
-      
+      opacity: 0.5, 
     },
     circle2:{
       position:"absolute",

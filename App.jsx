@@ -5,9 +5,12 @@ import Splash from './screens/Splash';
 import Register from './screens/Register';
 import Login from './screens/Login';
 import Main from './screens/Main';
+
 const Stack = createNativeStackNavigator();
+
 const App = () => {
   return (
+
     <NavigationContainer>
      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={Splash} options={{ headerShown: false }} />
@@ -16,6 +19,7 @@ const App = () => {
         <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
+
   );
 };
 
